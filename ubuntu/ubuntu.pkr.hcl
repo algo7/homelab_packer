@@ -1,6 +1,8 @@
 source "standard" {
   # Packer configuration
   insecure_skip_tls_verify = true
+  iso_url                  = "https://mirror.init7.net/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"
+  iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
 
   # VM configuration
   ## Hardware
