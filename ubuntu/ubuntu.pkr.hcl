@@ -26,9 +26,20 @@ source "standard" {
     efi_type          = "4m"
   }
 
+  ## Network
+  network_adapters = [
+    {
+      model  = "virtio"
+      bridge = "vmbr0"
+      "firewall" : true
+    }
+  ]
   ## Others
-  qeum_agent      = true
-  scsi_controller = "virtio-scsi-single"
-  onboot          = true
+  qeum_agent           = true
+  scsi_controller      = "virtio-scsi-single"
+  onboot               = true
+  template_name        = "ubuntu-22.04-lts-server-standard"
+  template_description = "Ubuntu 22.04 LTS Standard Server with 2C4T abd 8GB RAM"
+  unmount_iso          = true
 
 }
