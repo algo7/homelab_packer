@@ -17,7 +17,7 @@ source "standard" {
   }
 
   ## OS and BIOS
-  os      = "l25"
+  os      = "l26"
   bios    = "ovmf"
   machine = "q35"
   eficonfig = {
