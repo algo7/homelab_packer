@@ -40,8 +40,7 @@ source "standard" {
   qeum_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
-  template_name        = "ubuntu-22.04-lts-server-standard"
-  template_description = "Ubuntu 22.04 LTS Standard Server with 2C4T abd 8GB RAM"
+  template_name        = "ubuntu-22.04.3-lts-server-standard"
+  template_description = "Ubuntu 22.04.3 LTS Standard Server with 2C4T abd 8GB RAM"
   unmount_iso          = true
-
 }
