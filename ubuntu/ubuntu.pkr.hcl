@@ -45,11 +45,18 @@ source "standard" {
   unmount_iso             = true
   cloud_init              = true
   cloud_init_storage_pool = "HDD_RAID"
+  http_directory          = "http"
+  boot_wait               = "10s"
 
   ## Boot commands
   boot_command = [
-
-    "<tab><wait>",
-    " ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos6-ks.cfg<enter>"
+    "<esc><wait>",
+    "e<wait>",
+    "<down><down><down><end>",
+    "<bs><bs><bs><bs><wait>",
+    "autoinstall ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
+    "<f10><wait>"
   ]
+
+
 }
