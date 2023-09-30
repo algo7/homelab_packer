@@ -64,7 +64,7 @@ source "proxmox-iso" "standard" {
       "./http/user-data"
     ]
     cd_label         = "cidata"
-    iso_storage_pool = "HDD_RAID"
+    iso_storage_pool = "WD_MASS"
   }
 
 
@@ -75,7 +75,7 @@ source "proxmox-iso" "standard" {
     "e<wait>",
     "<down><down><down><end>",
     "<bs><bs><bs><bs><wait>",
-    "autoinstall ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
+    "autoinstall ds=nocloud-net;s=/cidata/ ---<wait>",
     "<f10><wait>"
   ]
 }
