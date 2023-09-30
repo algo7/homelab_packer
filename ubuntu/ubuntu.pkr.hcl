@@ -26,7 +26,7 @@ source "proxmox" "standard" {
   os      = "l26"
   bios    = "ovmf"
   machine = "q35"
-  eficonfig {
+  efi_config {
     efi_storage_pool  = "SSD_RAID"
     pre_enrolled_keys = true
     efi_type          = "4m"
@@ -40,7 +40,7 @@ source "proxmox" "standard" {
   }
 
   ## Others
-  qeum_agent           = true
+  qemu_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
   template_name        = "ubuntu-22.04.3-lts-server-standard"
