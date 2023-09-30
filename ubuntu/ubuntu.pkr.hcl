@@ -55,9 +55,17 @@ source "proxmox-iso" "standard" {
   # Cloud-init configuration
   cloud_init              = true
   cloud_init_storage_pool = "HDD_RAID"
-  http_directory          = "http"
-  http_port_min           = 12234
-  http_port_max           = 12234
+  # http_directory          = "http"
+  # http_port_min           = 12234
+  # http_port_max           = 12234
+  additional_iso_files {
+    cd_files = [
+      "./http/meta-data",
+      "./http/user-data"
+    ]
+    cd_label         = "cidata"
+    iso_storage_pool = "HDD_RAID"
+  }
 
 
   ## Boot options
