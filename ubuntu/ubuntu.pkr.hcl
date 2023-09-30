@@ -14,7 +14,7 @@ source "proxmox" "standard" {
   cores    = 2
   sockets  = 2
   cpu_type = "x86-64-v2-AES"
-  disk = {
+  disk {
     type         = "scsi"
     storage_pool = "SSD_RAID"
     disk_size    = "30G"
@@ -26,20 +26,19 @@ source "proxmox" "standard" {
   os      = "l26"
   bios    = "ovmf"
   machine = "q35"
-  eficonfig = {
-    efi_storage_pool  = "SSD_RAID",
-    pre_enrolled_keys = true,
+  eficonfig {
+    efi_storage_pool  = "SSD_RAID"
+    pre_enrolled_keys = true
     efi_type          = "4m"
   }
 
   ## Network
-  network_adapters = [
-    {
-      model  = "virtio"
-      bridge = "vmbr0"
-      "firewall" : true
-    }
-  ]
+  network_adapters {
+    model    = "virtio"
+    bridge   = "vmbr0"
+    firewall = true
+  }
+
   ## Others
   qeum_agent           = true
   scsi_controller      = "virtio-scsi-single"
