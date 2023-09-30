@@ -8,7 +8,7 @@ source "proxmox-iso" "standard" {
   # iso_url                  = "https://mirror.init7.net/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"
   # iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
   iso_storage_pool = "WD_MASS"
-  iso_file         = "WD_MASS:iso/ubuntu-22.04-live-server-amd64.iso"
+  iso_file         = "WD_MASS:iso/ubuntu-22.04.03-live-server-amd64.iso"
   node             = "pve"
   ssh_username     = "ubuntu"
   ssh_password     = "ubuntu"
