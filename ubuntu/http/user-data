@@ -1,0 +1,13 @@
+#cloud-config
+autoinstall:
+  version: 1
+  refresh-installer:
+    update: yes
+  source:
+    id: 'ubuntu-server'
+    search_driver: true
+  storage:
+    layout:
+      name: lvm
+    swap:
+      size: 0
