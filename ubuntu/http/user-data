@@ -12,9 +12,9 @@ autoinstall:
     swap:
       size: 0
   identity:
-    realname: 'ubuntu'
+    realname: ubuntu
     username: ubuntu
-    password: 'your_password'
+    password: pass
     hostname: ubuntu
   ssh:
     install-server: yes
@@ -25,3 +25,11 @@ autoinstall:
     - qemu-guest-agent
     - nload
   timezone: Europe/Zurich
+  updates: all
+  shutdown: reboot
+  user-data:
+    users:
+      - name: ubuntu
+        sudo: ALL=(ALL) NOPASSWD:ALL
+      - name: root
+        lock_passwd: true
