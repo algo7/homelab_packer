@@ -9,6 +9,7 @@ source "proxmox-iso" "standard" {
   # iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
   iso_file     = "WD_MASS:iso/ubuntu-22.04.3-live-server-amd64.iso"
   node         = "pve"
+  vm_id        = "10000"
   ssh_username = "ubuntu"
   ssh_password = "ubuntu"
   ssh_timeout  = "20m"
