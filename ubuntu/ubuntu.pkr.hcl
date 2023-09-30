@@ -9,7 +9,7 @@ source "standard" {
   memory   = 8192
   cores    = 2
   sockets  = 2
-  cpu_type = "kvm64"
+  cpu_type = "x86-64-v2-AES"
   disk = {
     type         = "scsi"
     storage_pool = "SSD_RAID"
