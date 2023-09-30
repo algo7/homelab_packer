@@ -11,3 +11,8 @@ autoinstall:
       name: lvm
     swap:
       size: 0
+  identity:
+    realname: 'ubuntu'
+    username: ubuntu
+    password: 'your_password'
+    hostname: ubuntu
