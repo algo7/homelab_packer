@@ -55,7 +55,7 @@ source "proxmox-iso" "standard" {
 
   # Cloud-init configuration
   cloud_init              = true
-  cloud_init_storage_pool = "SSD_RAID"
+  cloud_init_storage_pool = "WD_MASS"
   # http_directory          = "http"
   # http_port_min           = 12234
   # http_port_max           = 12234
@@ -65,8 +65,8 @@ source "proxmox-iso" "standard" {
       "./http/user-data"
     ]
     cd_label         = "cidata"
-    iso_storage_pool = "SSD_RAID"
-    unmount_iso      = true
+    iso_storage_pool = "WD_MASS"
+    unmount          = true
   }
 
 
