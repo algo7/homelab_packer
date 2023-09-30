@@ -14,7 +14,7 @@ source "proxmox" "standard" {
   cores    = 2
   sockets  = 2
   cpu_type = "x86-64-v2-AES"
-  disk {
+  disks {
     type         = "scsi"
     storage_pool = "SSD_RAID"
     disk_size    = "30G"
