@@ -45,4 +45,11 @@ source "standard" {
   unmount_iso             = true
   cloud_init              = true
   cloud_init_storage_pool = "HDD_RAID"
+
+  ## Boot commands
+  boot_command = [
+
+    "<tab><wait>",
+    " ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos6-ks.cfg<enter>"
+  ]
 }
