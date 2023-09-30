@@ -24,3 +24,4 @@ autoinstall:
     - htop
     - qemu-guest-agent
     - nload
+  timezone: Europe/Zurich
