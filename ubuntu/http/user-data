@@ -16,3 +16,11 @@ autoinstall:
     username: ubuntu
     password: 'your_password'
     hostname: ubuntu
+  ssh:
+    install-server: yes
+  drivers:
+    install: true
+  packages:
+    - htop
+    - qemu-guest-agent
+    - nload
