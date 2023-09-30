@@ -12,7 +12,7 @@ source "proxmox-iso" "standard" {
   node             = "pve"
   ssh_username     = "ubuntu"
   ssh_password     = "ubuntu"
-  ssh_timeout      = "10m"
+  ssh_timeout      = "20m"
 
   # VM configuration
   ## Hardware
@@ -31,7 +31,7 @@ source "proxmox-iso" "standard" {
   ## OS and BIOS
   os      = "l26"
   bios    = "ovmf"
-  machine = "q35"
+  machine = "pc"
   efi_config {
     efi_storage_pool  = "SSD_RAID"
     pre_enrolled_keys = true
