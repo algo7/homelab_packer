@@ -11,11 +11,6 @@ autoinstall:
       name: lvm
     swap:
       size: 0
-  identity:
-    realname: ubuntu
-    username: ubuntu
-    password: ubuntu
-    hostname: ubuntu
   ssh:
     install-server: yes
   drivers:
@@ -30,6 +25,13 @@ autoinstall:
   user-data:
     users:
       - name: ubuntu
+        groups: [adm, sudo]
+        lock-passwd: false
         sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        passwd: '$6$exDY1mhS4KUYCE/2$zmn9ToZwTKLhCw.b4/b.ZRTIZM30JZ4QrOQ2aOXJ8yk96xpcCof0kxKwuX1kqLG/ygbJ1f8wxED22bTL4F46P0' #ubuntu
+        # - or -
+        # ssh_authorized_keys:
+        #   - your-ssh-key
       - name: root
-        lock_passwd: true
+        lock-passwd: true
