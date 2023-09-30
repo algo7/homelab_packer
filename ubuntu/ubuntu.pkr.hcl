@@ -12,7 +12,7 @@ variable "proxmox_api_token_secret" {
   sensitive = true
 }
 
-source "standard" {
+source "proxmox" "standard" {
 
   # Proxmox Connection Settings
   proxmox_url              = var.proxmox_api_url
