@@ -14,7 +14,7 @@ autoinstall:
   identity:
     realname: ubuntu
     username: ubuntu
-    password: pass
+    password: ubuntu
     hostname: ubuntu
   ssh:
     install-server: yes

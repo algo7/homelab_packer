@@ -1,4 +1,4 @@
-source "proxmox" "standard" {
+source "proxmox-iso" "standard" {
 
   # Proxmox Connection Settings
   proxmox_url              = var.proxmox_api_url
@@ -9,6 +9,9 @@ source "proxmox" "standard" {
   iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
   iso_storage_pool         = "WD_MASS"
   node                     = "pve"
+  ssh_username             = "ubuntu"
+  ssh_password             = "ubuntu"
+  ssh_timeout              = "10m"
 
   # VM configuration
   ## Hardware
@@ -73,7 +76,7 @@ source "proxmox" "standard" {
 build {
 
   name    = "ubuntu-server-jammy"
-  sources = ["source.proxmox.standard"]
+  sources = ["source.proxmox-iso.standard"]
 
   # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
   provisioner "shell" {
