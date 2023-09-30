@@ -5,13 +5,14 @@ source "proxmox-iso" "standard" {
   username                 = var.proxmox_api_token_id
   token                    = var.proxmox_api_token_secret
   insecure_skip_tls_verify = true
-  iso_url                  = "https://mirror.init7.net/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"
-  iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
-  iso_storage_pool         = "WD_MASS"
-  node                     = "pve"
-  ssh_username             = "ubuntu"
-  ssh_password             = "ubuntu"
-  ssh_timeout              = "10m"
+  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"
+  # iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
+  iso_storage_pool = "WD_MASS"
+  iso_file         = "WD_MASS:iso/ubuntu-22.04-live-server-amd64.iso"
+  node             = "pve"
+  ssh_username     = "ubuntu"
+  ssh_password     = "ubuntu"
+  ssh_timeout      = "10m"
 
   # VM configuration
   ## Hardware
