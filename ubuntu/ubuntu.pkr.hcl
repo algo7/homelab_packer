@@ -184,13 +184,13 @@ build {
       "sudo cloud-init clean",
       "sudo rm -f /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg",
       "sudo rm -f /etc/netplan/00-installer-config.yaml",
-      "sudo echo \"PermitEmptyPasswords no\" >> /etc/ssh/sshd_config",
-      "sudo echo \"PermitRootLogin no\" >> /etc/ssh/sshd_config",
-      "sudo echo \"Protocol 2\" >> /etc/ssh/sshd_config",
-      "sudo echo \"AllowUsers ubuntu\" >> /etc/ssh/sshd_config",
-      "sudo echo \"PasswordAuthentication no\" >> /etc/ssh/sshd_config",
-      "sudo echo \"ChallengeResponseAuthentication no\" >> /etc/ssh/sshd_config",
-      "sudo echo \"AuthenticationMethods publickey\" >> /etc/ssh/sshd_config",
+      "echo \"PermitEmptyPasswords no\" | sudo tee -a /etc/ssh/sshd_config",
+      "echo \"PermitRootLogin no\" | sudo tee -a /etc/ssh/sshd_config",
+      "echo \"Protocol 2\" | sudo tee -a /etc/ssh/sshd_config",
+      "echo \"AllowUsers ubuntu\" | sudo tee -a /etc/ssh/sshd_config",
+      "echo \"PasswordAuthentication no\" | sudo tee -a /etc/ssh/sshd_config",
+      "echo \"ChallengeResponseAuthentication no\" | sudo tee -a /etc/ssh/sshd_config",
+      "echo \"AuthenticationMethods publickey\" | sudo tee -a /etc/ssh/sshd_config",
       "sudo sync"
     ]
   }
