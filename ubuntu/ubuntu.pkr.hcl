@@ -177,7 +177,7 @@ source "proxmox-iso" "storage-fast" {
   # iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
   iso_file     = "WD_MASS:iso/ubuntu-22.04.3-live-server-amd64.iso"
   node         = "pve"
-  vm_id        = "10001"
+  vm_id        = "10003"
   ssh_username = "ubuntu"
   ssh_password = "ubuntu"
   ssh_timeout  = "20m"
@@ -261,7 +261,7 @@ source "proxmox-iso" "storage-slow" {
   # iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
   iso_file     = "WD_MASS:iso/ubuntu-22.04.3-live-server-amd64.iso"
   node         = "pve"
-  vm_id        = "10001"
+  vm_id        = "10004"
   ssh_username = "ubuntu"
   ssh_password = "ubuntu"
   ssh_timeout  = "20m"
@@ -276,7 +276,7 @@ source "proxmox-iso" "storage-slow" {
     type         = "scsi"
     storage_pool = "SAS_STORAGE"
     disk_size    = "300G"
-    ssd          = true
+    ssd          = false
     format       = "qcow2"
   }
 
@@ -338,7 +338,7 @@ source "proxmox-iso" "storage-slow" {
 build {
 
   name    = "ubuntu-server-jammy"
-  sources = ["source.proxmox-iso.standard", "source.proxmox-iso.small", "source.proxmox-iso.storage-fast", "source.proxmox-iso.storage-slow"]
+  sources = ["source.proxmox-iso.storage-fast", "source.proxmox-iso.storage-slow"]
 
   # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
   provisioner "shell" {
