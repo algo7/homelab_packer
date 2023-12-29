@@ -301,7 +301,7 @@ source "proxmox-iso" "storage-slow" {
   qemu_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
-  template_name        = "ubuntu-22.04.3-lts-server-storage-fast"
+  template_name        = "ubuntu-22.04.3-lts-server-storage-slow"
   template_description = "Ubuntu 22.04.3 LTS Storage Server with 2C4T 4GB RAM and 300GB HDD"
   unmount_iso          = true
 
