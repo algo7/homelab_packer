@@ -338,7 +338,7 @@ source "proxmox-iso" "storage-slow" {
 build {
 
   name    = "ubuntu-server-jammy"
-  sources = ["source.proxmox-iso.standard", "source.proxmox-iso.small"]
+  sources = ["source.proxmox-iso.standard", "source.proxmox-iso.small", "source.proxmox-iso.storage-fast", "source.proxmox-iso.storage-slow"]
 
   # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
   provisioner "shell" {
