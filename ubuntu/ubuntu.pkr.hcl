@@ -184,7 +184,7 @@ source "proxmox-iso" "storage-fast" {
 
   # VM configuration
   ## Hardware
-  memory   = 4096
+  memory   = 8192
   cores    = 2
   sockets  = 2
   cpu_type = "x86-64-v2-AES"
@@ -268,7 +268,7 @@ source "proxmox-iso" "storage-slow" {
 
   # VM configuration
   ## Hardware
-  memory   = 4096
+  memory   = 8192
   cores    = 2
   sockets  = 2
   cpu_type = "x86-64-v2-AES"
