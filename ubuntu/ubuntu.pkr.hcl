@@ -218,7 +218,7 @@ source "proxmox-iso" "storage-optimized-fast" {
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
   template_name        = "ubuntu-22.04.3-lts-server-storage-fast"
-  template_description = "Ubuntu 22.04.3 LTS Storage Server with 2C2T 8GB RAM and 300GB SSD"
+  template_description = "Ubuntu 22.04.3 LTS Fast Storage Server with 2C2T 8GB RAM and 300GB SSD"
   unmount_iso          = true
 
   # Cloud-init configuration
@@ -302,7 +302,7 @@ source "proxmox-iso" "storage-optimized-slow" {
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
   template_name        = "ubuntu-22.04.3-lts-server-storage-slow"
-  template_description = "Ubuntu 22.04.3 LTS Storage Server with 2C2T 8GB RAM and 300GB HDD"
+  template_description = "Ubuntu 22.04.3 LTS Slow Storage Server with 2C2T 8GB RAM and 300GB HDD"
   unmount_iso          = true
 
   # Cloud-init configuration
@@ -385,8 +385,8 @@ source "proxmox-iso" "memory-optimized" {
   qemu_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
-  template_name        = "ubuntu-22.04.3-lts-server-standard"
-  template_description = "Ubuntu 22.04.3 LTS Standard Server with 4C2T and 32GB RAM"
+  template_name        = "ubuntu-22.04.3-lts-server-memory-optimized"
+  template_description = "Ubuntu 22.04.3 LTS Memory Optimized Server with 4C2T and 32GB RAM"
   unmount_iso          = true
 
   # Cloud-init configuration
@@ -469,8 +469,8 @@ source "proxmox-iso" "compute-optimized" {
   qemu_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
-  template_name        = "ubuntu-22.04.3-lts-server-standard"
-  template_description = "Ubuntu 22.04.3 LTS Standard Server with 8C2T and 16GB RAM"
+  template_name        = "ubuntu-22.04.3-lts-server-compute-optimized"
+  template_description = "Ubuntu 22.04.3 LTS Compute Optimized Server with 8C2T and 16GB RAM"
   unmount_iso          = true
 
   # Cloud-init configuration
