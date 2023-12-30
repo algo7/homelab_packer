@@ -505,8 +505,15 @@ source "proxmox-iso" "compute-optimized" {
 # Build Definition to create the VM Template
 build {
 
-  name    = "ubuntu-server-jammy"
-  sources = ["source.proxmox-iso.storage-optimized-fast", "source.proxmox-iso.storage-optimized-slow", "source.proxmox-iso.small", "source.proxmox-iso.standard", "source.proxmox-iso.memory-optimized", "source.proxmox-iso.compute-optimized"]
+  name = "ubuntu-server-jammy"
+  sources = [
+    # "source.proxmox-iso.small",
+    # "source.proxmox-iso.standard",
+    "source.proxmox-iso.storage-optimized-fast",
+    "source.proxmox-iso.storage-optimized-slow",
+    "source.proxmox-iso.memory-optimized",
+    "source.proxmox-iso.compute-optimized"
+  ]
 
   # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
   provisioner "shell" {
