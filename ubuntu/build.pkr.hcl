@@ -3,6 +3,7 @@ build {
 
   name = "ubuntu-server-jammy"
   sources = [
+         "source.proxmox-iso.lite",
     //  "source.proxmox-iso.small",
     //  "source.proxmox-iso.standard",
     // "source.proxmox-iso.storage-optimized-fast",
