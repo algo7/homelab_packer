@@ -7,8 +7,8 @@ source "proxmox-iso" "standard" {
   insecure_skip_tls_verify = true
   # iso_url                  = "https://mirror.init7.net/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"
   # iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
-  iso_file     = "WD_MASS:iso/ubuntu-22.04.3-live-server-amd64.iso"
-  node         = "pve"
+  iso_file     = var.iso_file
+  node         = var.node
   vm_id        = "10000"
   ssh_username = "ubuntu"
   ssh_password = "ubuntu"
@@ -22,7 +22,7 @@ source "proxmox-iso" "standard" {
   cpu_type = "x86-64-v2-AES"
   disks {
     type         = "scsi"
-    storage_pool = "SSD_RAID"
+    storage_pool = var.storage_pool
     disk_size    = "30G"
     ssd          = true
     format       = "qcow2"
@@ -33,7 +33,7 @@ source "proxmox-iso" "standard" {
   bios    = "ovmf"
   machine = "pc"
   efi_config {
-    efi_storage_pool  = "SSD_RAID"
+    efi_storage_pool  = var.storage_pool
     pre_enrolled_keys = true
     efi_type          = "4m"
   }
@@ -49,13 +49,13 @@ source "proxmox-iso" "standard" {
   qemu_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
-  template_name        = "ubuntu-22.04.3-lts-server-standard"
-  template_description = "Ubuntu 22.04.3 LTS Standard Server with 2C4T and 8GB RAM"
+  template_name        = "ubuntu-24.04-lts-server-standard"
+  template_description = "Ubuntu 24.04 LTS Standard Server with 2C4T and 8GB RAM"
   unmount_iso          = true
 
   # Cloud-init configuration
   cloud_init              = true
-  cloud_init_storage_pool = "WD_MASS"
+  cloud_init_storage_pool = var.cloud_init_storage_pool
   # http_directory          = "http"
   # http_port_min           = 12234
   # http_port_max           = 12234
@@ -65,7 +65,7 @@ source "proxmox-iso" "standard" {
       "./http/user-data"
     ]
     cd_label         = "cidata"
-    iso_storage_pool = "WD_MASS"
+    iso_storage_pool = var.iso_storage_pool
     unmount          = true
   }
 
