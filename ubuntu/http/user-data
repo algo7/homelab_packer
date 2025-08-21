@@ -27,6 +27,7 @@ autoinstall:
     - htop
     - qemu-guest-agent
     - nload
+    - nala
   timezone: Europe/Zurich
   updates: all
   shutdown: reboot
