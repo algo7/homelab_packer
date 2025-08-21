@@ -5,9 +5,9 @@ source "proxmox-iso" "memory-optimized" {
   username                 = var.proxmox_api_token_id
   token                    = var.proxmox_api_token_secret
   insecure_skip_tls_verify = true
-  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3.3/ubuntu-24.04.3.3-live-server-amd64.iso"
-  # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3.3/SHA256SUMS"
-  iso_file     = "WD_MASS:iso/ubuntu-24.04.3.3-live-server-amd64.iso"
+  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
+  # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3/SHA256SUMS"
+  iso_file     = "WD_MASS:iso/ubuntu-24.04.3-live-server-amd64.iso"
   node         = "pve"
   vm_id        = "10005"
   ssh_username = "ubuntu"
@@ -49,8 +49,8 @@ source "proxmox-iso" "memory-optimized" {
   qemu_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
-  template_name        = "ubuntu-24.04.3.3-lts-server-memory-optimized"
-  template_description = "Ubuntu 24.04.3.3 LTS Memory Optimized Server with 4C2T and 32GB RAM"
+  template_name        = "ubuntu-24.04.3-lts-server-memory-optimized"
+  template_description = "Ubuntu 24.04.3 LTS Memory Optimized Server with 4C2T and 32GB RAM"
   unmount_iso          = true
 
   # Cloud-init configuration
