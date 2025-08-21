@@ -6,8 +6,8 @@ source "proxmox-iso" "small" {
   username                 = var.proxmox_api_token_id
   token                    = var.proxmox_api_token_secret
   insecure_skip_tls_verify = true
-  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"
-  # iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
+  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3.3/ubuntu-24.04.3.3-live-server-amd64.iso"
+  # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3.3/SHA256SUMS"
   iso_file     = var.iso_file
   node         = var.node
   vm_id        = "10001"
@@ -50,8 +50,8 @@ source "proxmox-iso" "small" {
   qemu_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
-  template_name        = "ubuntu-22.04-lts-server-small"
-  template_description = "Ubuntu 22.04 LTS Small Server with 2C4T 4GB RAM"
+  template_name        = "ubuntu-24.04.3-lts-server-small"
+  template_description = "Ubuntu 24.04.3 LTS Small Server with 2C4T 4GB RAM"
   unmount_iso          = true
 
   # Cloud-init configuration

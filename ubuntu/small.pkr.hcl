@@ -5,8 +5,8 @@ source "proxmox-iso" "standard" {
   username                 = var.proxmox_api_token_id
   token                    = var.proxmox_api_token_secret
   insecure_skip_tls_verify = true
-  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"
-  # iso_checksum             = "file:https://releases.ubuntu.com/22.04.3/SHA256SUMS"
+  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3.3/ubuntu-24.04.3.3-live-server-amd64.iso"
+  # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3.3/SHA256SUMS"
   iso_file     = var.iso_file
   node         = var.node
   vm_id        = "10000"
