@@ -42,7 +42,8 @@ source "proxmox-iso" "small" {
   ## Network
   network_adapters {
     model    = "virtio"
-    bridge   = "vmbr0"
+    bridge   = "vmbr1"
+    vlan_tag = 20
     firewall = true
   }
 
@@ -65,6 +66,7 @@ source "proxmox-iso" "small" {
       "./http/meta-data",
       "./http/user-data"
     ]
+    type = "scsi"
     cd_label         = "cidata"
     iso_storage_pool = var.iso_storage_pool
     unmount          = true
