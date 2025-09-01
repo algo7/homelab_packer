@@ -41,7 +41,8 @@ source "proxmox-iso" "standard" {
   ## Network
   network_adapters {
     model    = "virtio"
-    bridge   = "vmbr0"
+    bridge   = "vmbr1"
+    vlan_tag = 20
     firewall = true
   }
 
