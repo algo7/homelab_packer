@@ -65,6 +65,7 @@ source "proxmox-iso" "lite" {
       "./http/meta-data",
       "./http/user-data"
     ]
+    type = "scsi"
     cd_label         = "cidata"
     iso_storage_pool = var.iso_storage_pool
     unmount          = true

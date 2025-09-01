@@ -65,8 +65,9 @@ source "proxmox-iso" "compute-optimized" {
       "./http/meta-data",
       "./http/user-data"
     ]
+    type = "scsi"
     cd_label         = "cidata"
-    iso_storage_pool = "WD_MASS"
+    iso_storage_pool = var.iso_storage_pool
     unmount          = true
   }
 
