@@ -5,9 +5,16 @@ source "proxmox-iso" "lite" {
   username                 = var.proxmox_api_token_id
   token                    = var.proxmox_api_token_secret
   insecure_skip_tls_verify = true
-  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
-  # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3/SHA256SUMS"
-  iso_file     = var.iso_file
+
+  # VM ISO Settings
+
+  boot_iso {
+    # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
+    # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3/SHA256SUMS"
+    iso_file     = var.iso_file
+    unmount          = true
+  }
+
   node         = var.node
   vm_id        = "10002"
   ssh_username = "ubuntu"
@@ -38,6 +45,7 @@ source "proxmox-iso" "lite" {
     efi_type          = "4m"
   }
 
+
   ## Network
   network_adapters {
     model    = "virtio"
@@ -52,11 +60,12 @@ source "proxmox-iso" "lite" {
   onboot               = true
   template_name        = "ubuntu-24.04.3-lts-server-lite"
   template_description = "Ubuntu 24.04.3 LTS Lite Server with 1C2T and 4GB RAM"
-  unmount_iso          = true
+
 
   # Cloud-init configuration
   cloud_init              = true
   cloud_init_storage_pool = var.cloud_init_storage_pool
+  cloud_init_disk_type = "scsi"
   # http_directory          = "http"
   # http_port_min           = 12234
   # http_port_max           = 12234
@@ -79,7 +88,9 @@ source "proxmox-iso" "lite" {
     "e<wait>",
     "<down><down><down><end>",
     "<bs><bs><bs><bs><wait>",
-    "autoinstall ds=nocloud-net;s=/cidata/ ---<wait>",
-    "<f10><wait>"
+    " autoinstall quiet ds=nocloud",
+    "<f10><wait>",
+    "<wait1m>",
+    "yes<enter>"
   ]
 }

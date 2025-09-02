@@ -5,9 +5,16 @@ source "proxmox-iso" "standard" {
   username                 = var.proxmox_api_token_id
   token                    = var.proxmox_api_token_secret
   insecure_skip_tls_verify = true
-  # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
-  # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3/SHA256SUMS"
-  iso_file     = var.iso_file
+
+  # VM ISO Settings
+  boot_iso {
+    # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
+    # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3/SHA256SUMS"
+    iso_file     = var.iso_file
+    unmount = true
+  }
+
+
   node         = var.node
   vm_id        = "10007"
   ssh_username = "ubuntu"
@@ -25,7 +32,7 @@ source "proxmox-iso" "standard" {
     storage_pool = var.storage_pool
     disk_size    = "30G"
     ssd          = true
-    format       = "qcow2"
+    format       =  var.disk_format
   }
 
   ## OS and BIOS
@@ -52,11 +59,11 @@ source "proxmox-iso" "standard" {
   onboot               = true
   template_name        = "ubuntu-24.04-lts-server-standard"
   template_description = "Ubuntu 24.04 LTS Standard Server with 2C4T and 8GB RAM"
-  unmount_iso          = true
 
   # Cloud-init configuration
   cloud_init              = true
   cloud_init_storage_pool = var.cloud_init_storage_pool
+    cloud_init_disk_type = "scsi"
   # http_directory          = "http"
   # http_port_min           = 12234
   # http_port_max           = 12234
@@ -79,7 +86,9 @@ source "proxmox-iso" "standard" {
     "e<wait>",
     "<down><down><down><end>",
     "<bs><bs><bs><bs><wait>",
-    "autoinstall ds=nocloud-net;s=/cidata/ ---<wait>",
-    "<f10><wait>"
+    " autoinstall quiet ds=nocloud",
+    "<f10><wait>",
+    "<wait1m>",
+    "yes<enter>"
   ]
 }

@@ -1,7 +1,7 @@
 # Build Definition to create the VM Template
 build {
 
-  name = "ubuntu-server-jammy"
+  name = "ubuntu-server-noble"
   sources = [
      "source.proxmox-iso.lite",
      "source.proxmox-iso.small",

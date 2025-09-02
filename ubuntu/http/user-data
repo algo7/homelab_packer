@@ -28,13 +28,16 @@ autoinstall:
     - qemu-guest-agent
     - nload
     - nala
+    - cloud-init
+    - nethogs
+    - net-tools
   timezone: Europe/Zurich
   updates: all
   shutdown: reboot
   user-data:
     users:
       - name: ubuntu
-        lock-passwd: false
+        lock_passwd: false
         sudo: ALL=(ALL) NOPASSWD:ALL
       - name: root
-        lock-passwd: true
+        lock_passwd: true
