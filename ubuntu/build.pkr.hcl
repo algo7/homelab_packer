@@ -6,12 +6,9 @@ build {
      "source.proxmox-iso.lite",
      "source.proxmox-iso.small",
      "source.proxmox-iso.standard",
-    // "source.proxmox-iso.storage-optimized-fast",
-    // "source.proxmox-iso.storage-optimized-slow",
-    // "source.proxmox-iso.memory-optimized",
-    // "source.proxmox-iso.compute-optimized"
   ]
 
+  # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
   # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
   provisioner "shell" {
     inline = [
@@ -24,14 +21,31 @@ build {
       "sudo cloud-init clean",
       "sudo rm -f /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg",
       "sudo rm -f /etc/netplan/00-installer-config.yaml",
+      "sudo sync"
+    ]
+  }
+
+  # SSH Hardening
+  provisioner "shell" {
+    inline = [
       "echo \"PermitEmptyPasswords no\" | sudo tee -a /etc/ssh/sshd_config",
       "echo \"PermitRootLogin no\" | sudo tee -a /etc/ssh/sshd_config",
       "echo \"Protocol 2\" | sudo tee -a /etc/ssh/sshd_config",
       "echo \"AllowUsers ubuntu\" | sudo tee -a /etc/ssh/sshd_config",
       "echo \"PasswordAuthentication no\" | sudo tee -a /etc/ssh/sshd_config",
       "echo \"ChallengeResponseAuthentication no\" | sudo tee -a /etc/ssh/sshd_config",
-      "echo \"AuthenticationMethods publickey\" | sudo tee -a /etc/ssh/sshd_config",
-      "sudo sync"
+      "echo \"AuthenticationMethods publickey\" | sudo tee -a /etc/ssh/sshd_config"
+    ]
+  }
+
+  # APT Configuration
+  provisioner "shell" {
+    inline = [
+      # "echo \"Acquire::http::Proxy \\\"http://URL:PORT\\\";\" | sudo tee -a /etc/apt/apt.conf.d/01proxy",
+      "echo \"Acquire::ForceIPv4 \\\"true\\\";\" | sudo tee -a /etc/apt/apt.conf.d/99force-ipv4",
+      "sudo sed -i '/distro_codename}-updates/s|^//||' /etc/apt/apt.conf.d/50unattended-upgrades",
+      "echo 'Unattended-Upgrade::Automatic-Reboot \"true\";' | sudo tee -a /etc/apt/apt.conf.d/50unattended-upgrades",
+      "echo 'Unattended-Upgrade::Automatic-Reboot-Time \"03:00\";' | sudo tee -a /etc/apt/apt.conf.d/50unattended-upgrades"
     ]
   }
 

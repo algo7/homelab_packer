@@ -8,15 +8,15 @@ source "proxmox-iso" "standard" {
 
   # VM ISO Settings
   boot_iso {
-    # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
-    # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3/SHA256SUMS"
+    # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.4/ubuntu-24.04.4-live-server-amd64.iso"
+    # iso_checksum             = "file:https://releases.ubuntu.com/24.04.4/SHA256SUMS"
     iso_file     = var.iso_file
     unmount = true
   }
 
 
   node         = var.node
-  vm_id        = "10007"
+  vm_id        = "10003"
   ssh_username = "ubuntu"
   ssh_password = "ubuntu"
   ssh_timeout  = "20m"

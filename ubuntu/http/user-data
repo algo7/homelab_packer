@@ -31,6 +31,7 @@ autoinstall:
     - cloud-init
     - nethogs
     - net-tools
+    - nala
   timezone: Europe/Zurich
   updates: all
   shutdown: reboot

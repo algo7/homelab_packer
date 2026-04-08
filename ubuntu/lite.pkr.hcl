@@ -9,8 +9,8 @@ source "proxmox-iso" "lite" {
   # VM ISO Settings
 
   boot_iso {
-    # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
-    # iso_checksum             = "file:https://releases.ubuntu.com/24.04.3/SHA256SUMS"
+    # iso_url                  = "https://mirror.init7.net/ubuntu-releases/24.04.4/ubuntu-24.04.4-live-server-amd64.iso"
+    # iso_checksum             = "file:https://releases.ubuntu.com/24.04.4/SHA256SUMS"
     iso_file     = var.iso_file
     unmount          = true
   }
@@ -58,8 +58,8 @@ source "proxmox-iso" "lite" {
   qemu_agent           = true
   scsi_controller      = "virtio-scsi-single"
   onboot               = true
-  template_name        = "ubuntu-24.04.3-lts-server-lite"
-  template_description = "Ubuntu 24.04.3 LTS Lite Server with 1C2T and 4GB RAM"
+  template_name        = "ubuntu-24.04.4-lts-server-lite"
+  template_description = "Ubuntu 24.04.4 LTS Lite Server with 1C2T and 4GB RAM"
 
 
   # Cloud-init configuration
